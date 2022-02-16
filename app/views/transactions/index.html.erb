@@ -7,12 +7,14 @@
     <li>
     Initial Coin Offering: <%=transactions[0].amount%> KC to <%=transactions[0].to_user.name%>
     </li>
-    <%for transaction in transactions%>
+        <%for transaction in transactions%>
+            <%if transaction.from_user%>
         <li>
-            <%=transaction.amount%>KC from <%=transaction.from_user%> to <%=transaction.to_user%>
+            <%=transaction.amount%>KC from <%=transaction.from_user.name%> to <%=transaction.to_user.name%>
+        <%else%>    
             </li>
     <%end%>
-    
+  <%end%>  
 </ol>
 
 
