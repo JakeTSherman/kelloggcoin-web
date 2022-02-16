@@ -4,9 +4,12 @@
 <ol> 
     <%transactions = Transaction.all%>
     <%users = User.all%>
+    <li>
+    Initial Coin Offering: <%=transactions[0].amount%> KC to <%=transactions[0].to_user.name%>
+    </li>
     <%for transaction in transactions%>
         <li>
-            <%=transaction.amount%>KC from <%=transaction.from_user.name%> to <%=transaction.to_user.name%>
+            <%=transaction.amount%>KC from <%=transaction.from_user%> to <%=transaction.to_user%>
             </li>
     <%end%>
     
