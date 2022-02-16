@@ -19,6 +19,15 @@
 
 
 <!-- Step 2: Calculate and display the balances -->
+<h1>
+<ul>
+    <%for user in users%>
+        <li>
+        Balance for <%=user.name%>: <%=Transaction.where({to_user_id: user}).sum(:amount)-Transaction.where({from_user_id: user}).sum(:amount)%>KC
+        </li>
+<%end%>
+</ul>
+</h1>
 
 <!-- 
 Expected balances:
